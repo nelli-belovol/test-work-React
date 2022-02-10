@@ -1,18 +1,25 @@
 {
-  "name": "react-default",
+  "name": "test-work-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.7.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.25.0",
     "gh-pages": "^3.2.3",
     "modern-normalize": "^1.1.0",
     "node-sass": "^6.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-loader-spinner": "^5.1.0",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.1",
     "react-scripts": "4.0.3",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -26,13 +33,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nelli-belovol/react-default.git"
+    "url": "git+https://github.com/nelli-belovol/test-work-react.git"
   },
   "author": "Nelli Belovol <nelli199020@gmail.com>",
   "bugs": {
-    "url": "https://github.com/nelli-belovol/react-default/issues"
+    "url": "https://github.com/nelli-belovol/test-work-react/issues"
   },
-  "homepage": "https://nelli-belovol.github.io/react-default",
+  "homepage": "https://nelli-belovol.github.io/test-work-react",
   "eslintConfig": {
     "extends": [
       "react-app",
