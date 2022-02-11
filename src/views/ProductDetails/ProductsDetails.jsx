@@ -2,14 +2,17 @@ import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { productsOperations, productsSelectors } from 'redux/products';
+import {
+  productsOperations,
+  productsSelectors,
+  productsActions,
+} from 'redux/products';
 
 export default function ProductsDetails() {
   const dispatch = useDispatch();
   const { productId } = useParams();
 
-  const product = useSelector(productsSelectors.getProducts);
-  console.log(product);
+  const product = useSelector(productsSelectors.getProductDetails);
 
   useEffect(() => {
     dispatch(productsOperations.getProductById(productId));
@@ -17,6 +20,10 @@ export default function ProductsDetails() {
 
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
+
+  const handleClick = () => {
+    dispatch(productsActions.addProduct(product));
+  };
 
   return (
     <div>
@@ -32,7 +39,9 @@ export default function ProductsDetails() {
       />
       <p>{product.description}</p>
       <span>&#36;{product.price}</span>
-      <button type="button">Add to Cart</button>
+      <button onClick={handleClick} type="button">
+        Add to Cart
+      </button>
     </div>
   );
 }

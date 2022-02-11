@@ -1,10 +1,21 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
 
-import { addProduct, delProduct } from './productsActions';
+import {
+  addProduct,
+  delProduct,
+  addQuantity,
+  delQuantity,
+} from './productsActions';
 import { getProducts, getProductById } from './productsOperations';
 
 const entities = createReducer([], {
-  [getProducts.fulfilled]: (_, action) => action.payload,
+  [getProducts.fulfilled]: (_, { payload }) => {
+    payload.forEach(product => (product.quantity = 1));
+    return payload;
+  },
+});
+
+const productDetails = createReducer([], {
   [getProductById.fulfilled]: (_, action) => action.payload,
 });
 
@@ -12,6 +23,14 @@ const cartProducts = createReducer([], {
   [addProduct]: (state, { payload }) => [...state, payload],
   [delProduct]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
+  [addQuantity]: (state, { payload }) => {
+    const product = state.find(product => payload.id === product.id);
+    product.quantity += 1;
+  },
+  [delQuantity]: (state, { payload }) => {
+    const product = state.find(product => payload.id === product.id);
+    product.quantity -= 1;
+  },
 });
 
 const isLoading = createReducer(false, {
@@ -34,7 +53,9 @@ const error = createReducer(null, {
 
 export default combineReducers({
   entities,
+  productDetails,
   cartProducts,
+
   isLoading,
   error,
 });
