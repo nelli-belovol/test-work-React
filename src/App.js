@@ -11,7 +11,7 @@ export default function App() {
   return (
     // <Suspense fallback={<Loading />}>
     <Routes>
-      <Route path="/" element={<HomeView />} />
+      <Route index element={<HomeView />} />
       <Route path="/products" element={<ProductsPage />} />
       <Route path="/products/:productId" element={<ProductsDetail />}></Route>
       <Route path="/cart" element={<Cart />}></Route>
