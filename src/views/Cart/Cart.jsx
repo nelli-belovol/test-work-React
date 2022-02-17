@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   productsOperations,
@@ -7,11 +7,33 @@ import {
   productsActions,
 } from 'redux/products';
 
+import { Container } from '../Container.styled';
+import {
+  CartEl,
+  HeaderEl,
+  Button,
+  CartList,
+  CartItem,
+  ProductInfo,
+  Title,
+  AddQuantity,
+  ImageEl,
+  Image,
+  Price,
+  DarkButton,
+  IncrDecrButton,
+  Wraper,
+  DelButton,
+  PriceTotal,
+} from './Cart.styled';
+import { IoAdd, IoRemove, IoClose } from 'react-icons/io5';
 export default function Cart() {
   const dispatch = useDispatch();
   const [totalSum, setTotalSum] = useState(0);
   const cartProducts = useSelector(productsSelectors.getCartProducts);
 
+  const navigate = useNavigate();
+  const goBack = () => navigate(-1);
   useEffect(() => {
     dispatch(productsOperations.getProducts());
     let summ = cartProducts.reduce(
@@ -41,59 +63,83 @@ export default function Cart() {
   };
 
   return (
-    <>
-      <ul className="">
-        {cartProducts &&
-          cartProducts.map(product => {
-            return (
-              <li className="" key={product.id}>
-                <img
-                  width="66px"
-                  height="66px"
-                  src={product.image}
-                  alt={product.description}
-                />
-                <h2> {product.title}</h2>
-                <p>ProductID:{product.id}</p>
-                <span>&#36;{product.price}</span>
-                <Link to={`/products/${product.id}`} element={product.id}>
-                  More
-                </Link>
-                <div className="">
-                  <button
-                    onClick={() => handleDecrement(product)}
-                    type="button"
-                  >
-                    -
-                  </button>
-                  <input type="number" value={product.quantity} readOnly />
+    <Container>
+      <CartEl>
+        <HeaderEl>
+          <Button onClick={goBack} type="button">
+            Go back
+          </Button>
+          <p onClick={() => navigate(`/products`)} to="/products">
+            Back to products
+          </p>
+        </HeaderEl>
+        <CartList>
+          {cartProducts &&
+            cartProducts.map(product => {
+              return (
+                <CartItem key={product.id}>
+                  <ImageEl>
+                    <Image src={product.image} alt={product.description} />
+                  </ImageEl>
 
-                  <button
-                    onClick={() => handleIncrement(product)}
+                  <ProductInfo>
+                    <Title> {product.title}</Title>
+                    <p>ProductID:{product.id}</p>
+                  </ProductInfo>
+
+                  <Wraper>
+                    <DarkButton
+                      type="button"
+                      onClick={() => navigate(`/products/${product.id}`)}
+                    >
+                      More
+                    </DarkButton>
+                    <AddQuantity>
+                      <IncrDecrButton
+                        onClick={() => handleDecrement(product)}
+                        type="button"
+                      >
+                        <IoRemove />
+                      </IncrDecrButton>
+                      <input
+                        width="30px"
+                        type="number"
+                        value={product.quantity}
+                        readOnly
+                      />
+
+                      <IncrDecrButton
+                        onClick={() => handleIncrement(product)}
+                        type="button"
+                      >
+                        <IoAdd />
+                      </IncrDecrButton>
+                    </AddQuantity>
+                    <Price className="productSum">
+                      {product.quantity * product.price}
+                    </Price>
+                  </Wraper>
+                  <DelButton
+                    onClick={() => handleDelProduct(product.id)}
                     type="button"
                   >
-                    +
-                  </button>
-                </div>
-                <p className="productSum">{product.quantity * product.price}</p>
-                <button onClick={handleClick} type="submit">
-                  Checkout
-                </button>
-                <button
-                  onClick={() => handleDelProduct(product.id)}
-                  type="button"
-                >
-                  Delete from cart
-                </button>
-              </li>
-            );
-          })}
-      </ul>
-      {cartProducts[0] && <p>Total: {totalSum}</p>}
-    </>
+                    <IoClose
+                      fill="red"
+                      position="absolute"
+                      top=" 50%"
+                      left="50%"
+                      transform="translate(-50%, -50%)"
+                    />
+                  </DelButton>
+                </CartItem>
+              );
+            })}
+        </CartList>
+        {cartProducts[0] && <PriceTotal>Total: &#36;{totalSum}</PriceTotal>}
+        <Button onClick={handleClick} type="submit">
+          Checkout
+        </Button>
+      </CartEl>
+    </Container>
   );
 }
-
-// Экран корзина: список товаров, общая сумма, кнопка оформить заказ (дизайн на свое усмотрение).
-// по клику на товар перемещаемся на экран товара.
-// в корзине можем удалять товары или изменять их кол-во.

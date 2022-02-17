@@ -1,22 +1,21 @@
-import React, { useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { IoBag } from 'react-icons/io5';
+import { productsSelectors, productsActions } from 'redux/products';
+import ProductInfo from '../../Components/ProductInfo/ProductInfo';
+import { Container } from '../Container.styled';
 import {
-  productsOperations,
-  productsSelectors,
-  productsActions,
-} from 'redux/products';
+  ProductsDetailsEl,
+  Button,
+  AddButton,
+  HeaderEl,
+} from './ProductsDetails.styled';
 
 export default function ProductsDetails() {
   const dispatch = useDispatch();
-  const { productId } = useParams();
 
   const product = useSelector(productsSelectors.getProductDetails);
-
-  useEffect(() => {
-    dispatch(productsOperations.getProductById(productId));
-  }, [dispatch, productId]);
 
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
@@ -26,22 +25,26 @@ export default function ProductsDetails() {
   };
 
   return (
-    <div>
-      <button onClick={goBack} className="" type="button">
-        Go back
-      </button>
-      <h1>{product.title}</h1>
-      <img
-        width="160px"
-        height="160px"
-        src={product.image}
-        alt={product.description}
-      />
-      <p>{product.description}</p>
-      <span>&#36;{product.price}</span>
-      <button onClick={handleClick} type="button">
-        Add to Cart
-      </button>
-    </div>
+    <Container>
+      <ProductsDetailsEl>
+        <HeaderEl>
+          <Button onClick={goBack} type="button">
+            Go back
+          </Button>
+          <NavLink to="/cart">
+            <IoBag
+              size="24px"
+              fill="var(--price-color)"
+              stroke="var(--first-accentcolor)"
+              strokeWidth="6"
+            ></IoBag>
+          </NavLink>
+        </HeaderEl>
+        <ProductInfo />
+        <AddButton onClick={handleClick} type="button">
+          Add to Cart
+        </AddButton>
+      </ProductsDetailsEl>
+    </Container>
   );
 }
