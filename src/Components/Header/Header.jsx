@@ -13,29 +13,26 @@ import {
 import { IoAppsSharp, IoTrash, IoBag } from 'react-icons/io5';
 import { ImList } from 'react-icons/im';
 
-export default function Header() {
-  const [listStyle, setListStyle] = useState('line');
-
-  const toggleListStyle = e => {
-    const button = e.currentTarget.innerHTML;
-    console.log(button.includes('list'));
-    button.includes('list') ? setListStyle('line') : setListStyle('grid');
-  };
-  useEffect(() => {
-    const list = document.querySelector('ul');
-    list.setAttribute('data-listStyle', listStyle);
-  }, [listStyle]);
+export default function Header({ changeListStyle }) {
   return (
     <>
       <HeaderEl>
         <Wraper>
           <Title>Our products</Title>
           <Navigate>
-            <ModeSwitcher onClick={toggleListStyle}>
-              <DarkButton id="list" type="button">
+            <ModeSwitcher>
+              <DarkButton
+                value="line"
+                type="button"
+                onClick={e => changeListStyle(e.currentTarget.value)}
+              >
                 <ImList width="100%" fill="var(--main-color)" />
               </DarkButton>
-              <Button type="button">
+              <Button
+                value="grid"
+                type="button"
+                onClick={e => changeListStyle(e.currentTarget.value)}
+              >
                 <IoAppsSharp fill="var(--main-color)" />
               </Button>
             </ModeSwitcher>

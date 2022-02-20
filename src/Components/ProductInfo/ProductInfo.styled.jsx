@@ -9,7 +9,7 @@ export const Title = styled.h2`
 export const ImageEl = styled.div`
   display: flex;
   margin: 20px auto;
-  width: 200px;
+  width: 300px;
 `;
 
 export const Image = styled.img`
@@ -20,7 +20,7 @@ export const Image = styled.img`
 `;
 
 export const ProductText = styled.p`
-  width: 200px;
+  width: 600px;
   margin: 10px auto;
   text-align: center;
 `;

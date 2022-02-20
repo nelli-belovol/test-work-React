@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  productsOperations,
-  productsSelectors,
-  productsActions,
-} from 'redux/products';
+import { productsSelectors, productsActions } from 'redux/products';
 
 import { Container } from '../Container.styled';
 import {
@@ -27,6 +23,7 @@ import {
   PriceTotal,
 } from './Cart.styled';
 import { IoAdd, IoRemove, IoClose } from 'react-icons/io5';
+
 export default function Cart() {
   const dispatch = useDispatch();
   const [totalSum, setTotalSum] = useState(0);
@@ -34,8 +31,8 @@ export default function Cart() {
 
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
+
   useEffect(() => {
-    dispatch(productsOperations.getProducts());
     let summ = cartProducts.reduce(
       (total, { quantity, price }) => price * quantity + total,
       0,
@@ -101,12 +98,7 @@ export default function Cart() {
                       >
                         <IoRemove />
                       </IncrDecrButton>
-                      <input
-                        width="30px"
-                        type="number"
-                        value={product.quantity}
-                        readOnly
-                      />
+                      <input type="number" value={product.quantity} readOnly />
 
                       <IncrDecrButton
                         onClick={() => handleIncrement(product)}
@@ -128,7 +120,6 @@ export default function Cart() {
                       position="absolute"
                       top=" 50%"
                       left="50%"
-                      transform="translate(-50%, -50%)"
                     />
                   </DelButton>
                 </CartItem>

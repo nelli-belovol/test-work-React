@@ -1,8 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { productsOperations, productsSelectors } from 'redux/products';
 
 import {
   Title,
@@ -12,15 +9,16 @@ import {
   ProductText,
 } from './ProductInfo.styled';
 
+import FetchProducts from '../../api/products';
+const api = new FetchProducts();
+
 export default function ProductInfo() {
-  const dispatch = useDispatch();
+  const [product, setProduct] = useState({});
   const { productId } = useParams();
 
-  const product = useSelector(productsSelectors.getProductDetails);
-
   useEffect(() => {
-    dispatch(productsOperations.getProductById(productId));
-  }, [dispatch, productId]);
+    api.fetchProductsDetails(productId).then(data => setProduct(data));
+  }, [productId]);
 
   return (
     <>
