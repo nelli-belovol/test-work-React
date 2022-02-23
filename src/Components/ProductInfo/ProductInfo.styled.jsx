@@ -3,13 +3,23 @@ import styled from 'styled-components';
 export const Title = styled.h2`
   text-transform: uppercase;
   color: var(--main-text-color);
-  font-size: 24px;
 `;
 
 export const ImageEl = styled.div`
-  display: flex;
-  margin: 20px auto;
-  width: 300px;
+  width: 150px;
+  height: auto;
+
+  margin: 10px auto;
+
+  @media screen and (min-width: 768px) {
+    width: 200px;
+    height: auto;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 300px;
+    height: auto;
+  }
 `;
 
 export const Image = styled.img`
@@ -20,14 +30,23 @@ export const Image = styled.img`
 `;
 
 export const ProductText = styled.p`
-  width: 600px;
-  margin: 10px auto;
+  margin: 0px auto 10px auto;
+  font-style: italic;
   text-align: center;
+  width: 150px;
+
+  @media screen and (min-width: 768px) {
+    width: 200px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 300px;
+  }
 `;
 
 export const Price = styled.span`
   font-weight: bold;
-  font-size: 20px;
+
   color: var(--price-color);
   text-align: right;
 `;

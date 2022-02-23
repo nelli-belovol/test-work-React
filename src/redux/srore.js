@@ -2,7 +2,7 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import products from './products/productsReducer';
-// import { cartProducts } from './products/cartProductsReducer';
+
 import logger from 'redux-logger';
 import {
   FLUSH,

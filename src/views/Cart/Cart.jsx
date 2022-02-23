@@ -98,8 +98,7 @@ export default function Cart() {
                       >
                         <IoRemove />
                       </IncrDecrButton>
-                      <input type="number" value={product.quantity} readOnly />
-
+                      <span>{product.quantity} </span>
                       <IncrDecrButton
                         onClick={() => handleIncrement(product)}
                         type="button"
@@ -108,7 +107,8 @@ export default function Cart() {
                       </IncrDecrButton>
                     </AddQuantity>
                     <Price className="productSum">
-                      {product.quantity * product.price}
+                      &#36;{' '}
+                      {Math.floor(product.quantity * product.price * 100) / 100}
                     </Price>
                   </Wraper>
                   <DelButton
@@ -126,10 +126,16 @@ export default function Cart() {
               );
             })}
         </CartList>
-        {cartProducts[0] && <PriceTotal>Total: &#36;{totalSum}</PriceTotal>}
-        <Button onClick={handleClick} type="submit">
-          Checkout
-        </Button>
+        {cartProducts[0] ? (
+          <>
+            <PriceTotal>Total: &#36;{totalSum}</PriceTotal>
+            <Button onClick={handleClick} type="submit">
+              Checkout
+            </Button>
+          </>
+        ) : (
+          <p>Cart is empty</p>
+        )}
       </CartEl>
     </Container>
   );

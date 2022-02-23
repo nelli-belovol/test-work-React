@@ -15,6 +15,7 @@ import {
   ImageEl,
   Image,
   Price,
+  Sale,
 } from './ProductItemGrid.styled';
 
 export default function ProductItemLine(props) {
@@ -35,6 +36,7 @@ export default function ProductItemLine(props) {
     <ProductItem key={product.id}>
       <ImageEl>
         <Image src={product.image} alt={product.description} />
+        {product.sale && <Sale>sale</Sale>}
       </ImageEl>
       <ProductInfo>
         <Title> {product.title}</Title>

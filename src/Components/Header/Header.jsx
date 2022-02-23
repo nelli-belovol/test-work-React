@@ -38,6 +38,7 @@ export default function Header({ changeListStyle }) {
             </ModeSwitcher>
             <NavLink to="/cart">
               <IoBag
+                display="block"
                 size="24px"
                 fill="var(--price-color)"
                 stroke="var(--first-accentcolor)"

@@ -15,10 +15,12 @@ import {
   ImageEl,
   Image,
   Price,
+  Sale,
 } from './ProductItemLine.styled';
 
 export default function ProductItemLine(props) {
   const { product } = props;
+
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const cartProducts = useSelector(productsSelectors.getCartProducts);
@@ -35,7 +37,9 @@ export default function ProductItemLine(props) {
     <ProductItem key={product.id}>
       <ImageEl>
         <Image src={product.image} alt={product.description} />
+        {product.sale && <Sale>sale</Sale>}
       </ImageEl>
+
       <ProductInfo>
         <Title> {product.title}</Title>
         <p>ProductID: {product.id}</p>

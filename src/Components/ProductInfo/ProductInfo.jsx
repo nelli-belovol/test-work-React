@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 
 import {
   Title,
@@ -9,17 +8,7 @@ import {
   ProductText,
 } from './ProductInfo.styled';
 
-import FetchProducts from '../../api/products';
-const api = new FetchProducts();
-
-export default function ProductInfo() {
-  const [product, setProduct] = useState({});
-  const { productId } = useParams();
-
-  useEffect(() => {
-    api.fetchProductsDetails(productId).then(data => setProduct(data));
-  }, [productId]);
-
+export default function ProductInfo({ product }) {
   return (
     <>
       <Title>{product.title}</Title>

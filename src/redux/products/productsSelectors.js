@@ -1,1 +1,1 @@
-export const getCartProducts = state => state.products.cartProducts;
+export const getCartProducts = state => state.products.entities;

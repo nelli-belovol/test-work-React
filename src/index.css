@@ -238,7 +238,7 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
-  /* outline: 1px solid red; */
+  outline: 1px solid red;
 }
 
 h1,
@@ -300,8 +300,16 @@ a {
   --second-text-color: rgb(219, 222, 230);
 
   --price-color: rgb(144, 70, 68);
-}
 
-:root {
+  /* font-size: ${px2vw(24)};
+
+  @media (min-width: 768px) {
+    font-size: ${px2vw(18)};
+  }
+
+   @media (min-width: 1024px) {
+    font-size: ${px2vw(16)};
+   } */
+
   background-color: var(--backrgound-color);
 }
