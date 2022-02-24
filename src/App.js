@@ -2,11 +2,8 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import React, { lazy, Suspense } from 'react';
 import HomeView from './views/HomeView/HomeView';
-// import ProductsPage from './views/ProductsPage/ProductsPage';
-// import ProductsDetail from './views/ProductDetails/ProductsDetails';
 import { Loading } from './Components/Loading/Loading.jsx';
 import Cart from './views/Cart/Cart';
-
 import Global from './styles/global';
 
 const AsyncProductsPage = lazy(() =>

@@ -120,7 +120,7 @@ export const Sale = styled.div`
   text-transform: uppercase;
   font-size: 6px;
   font-weight: bold;
-  background-color: rgb(188, 207, 132);
+  background-color: rgba(188, 207, 132, 0.8);
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   border-radius: 5px;
   border: none;

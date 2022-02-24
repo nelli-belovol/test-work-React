@@ -22,7 +22,14 @@ export default function ProductsDetails() {
   const { productId } = useParams();
 
   useEffect(() => {
-    api.fetchProductsDetails(productId).then(data => setProduct(data));
+    api.fetchProductsDetails(productId).then(data => {
+      if (data.id % 3 === 0) {
+        data.sale = true;
+      } else {
+        data.sale = false;
+      }
+      setProduct(data);
+    });
   }, [productId]);
 
   const navigate = useNavigate();

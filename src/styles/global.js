@@ -1,12 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
-// import px2vw from '../utils/px2vw';
 
 export const Global = createGlobalStyle`
-  *,
+*,
 *::before,
 *::after {
-  box-sizing: inherit;
-   outline: 1px solid red; 
+  box-sizing: border-box;
+    //  outline: 1px solid red; 
 }
 
 h1,
@@ -81,9 +80,7 @@ a {
    }
 
    background-color: var(--backrgound-color);
-}
-
-  
+}  
 `;
 
 export default Global;

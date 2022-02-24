@@ -6,6 +6,7 @@ import {
   Image,
   Price,
   ProductText,
+  Sale,
 } from './ProductInfo.styled';
 
 export default function ProductInfo({ product }) {
@@ -13,12 +14,8 @@ export default function ProductInfo({ product }) {
     <>
       <Title>{product.title}</Title>
       <ImageEl>
-        <Image
-          width="160px"
-          height="160px"
-          src={product.image}
-          alt={product.description}
-        />
+        <Image src={product.image} alt={product.description} />
+        {product.sale && <Sale>sale</Sale>}
       </ImageEl>
 
       <ProductText>{product.description}</ProductText>

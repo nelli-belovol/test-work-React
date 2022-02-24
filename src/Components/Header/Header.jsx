@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   HeaderEl,
@@ -10,7 +10,7 @@ import {
   DarkButton,
 } from './Header.styled';
 
-import { IoAppsSharp, IoTrash, IoBag } from 'react-icons/io5';
+import { IoAppsSharp, IoBag } from 'react-icons/io5';
 import { ImList } from 'react-icons/im';
 
 export default function Header({ changeListStyle }) {

@@ -6,6 +6,7 @@ export const Title = styled.h2`
 `;
 
 export const ImageEl = styled.div`
+  position: relative;
   width: 150px;
   height: auto;
 
@@ -49,4 +50,27 @@ export const Price = styled.span`
 
   color: var(--price-color);
   text-align: right;
+`;
+
+export const Sale = styled.div`
+  position: absolute;
+  top: 70%;
+  left: 0;
+  text-transform: uppercase;
+  font-size: 6px;
+  font-weight: bold;
+  background-color: rgba(188, 207, 132, 0.8);
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  border-radius: 5px;
+  border: none;
+  padding: 4px 1px;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    padding: 10px 5px;
+    font-size: 12px;
+  }
+
+  @media screen and (min-width: 1200px) {
+  }
 `;
