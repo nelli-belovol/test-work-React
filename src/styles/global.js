@@ -71,11 +71,15 @@ a {
 
  font-size: 8px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 480px) {
     font-size: 10px;
   }
   @media screen and (min-width: 768px) {
     font-size: 12px;
+  }
+
+   @media screen and (min-width: 1200px) {
+    font-size: 16px;
   }
 
    background-color: var(--backrgound-color);

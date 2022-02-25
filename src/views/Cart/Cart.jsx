@@ -21,7 +21,7 @@ import {
   PriceTotal,
 } from './Cart.styled';
 
-import { Button, DarkButton } from '../../styles/Buttons';
+import { Button } from '../../styles/Buttons';
 import { IoAdd, IoRemove, IoClose } from 'react-icons/io5';
 
 export default function Cart() {
@@ -80,17 +80,13 @@ export default function Cart() {
                   </ImageEl>
 
                   <ProductInfo>
-                    <Title> {product.title}</Title>
+                    <Title onClick={() => navigate(`/products/${product.id}`)}>
+                      {product.title}
+                    </Title>
                     <p>ProductID:{product.id}</p>
                   </ProductInfo>
 
                   <Wraper>
-                    <DarkButton
-                      type="button"
-                      onClick={() => navigate(`/products/${product.id}`)}
-                    >
-                      More
-                    </DarkButton>
                     <AddQuantity>
                       <IncrDecrButton
                         onClick={() => handleDecrement(product)}
@@ -98,7 +94,7 @@ export default function Cart() {
                       >
                         <IoRemove />
                       </IncrDecrButton>
-                      <span>{product.quantity} </span>
+                      <div>{product.quantity} </div>
                       <IncrDecrButton
                         onClick={() => handleIncrement(product)}
                         type="button"

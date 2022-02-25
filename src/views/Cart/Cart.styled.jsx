@@ -56,6 +56,7 @@ export const ProductInfo = styled.div`
   padding-left: 5px;
   width: 250px;
   text-align: left;
+
   @media screen and (min-width: 768px) {
     padding-left: 10px;
   }
@@ -65,12 +66,18 @@ export const Title = styled.h2`
   text-transform: uppercase;
   color: var(--main-text-color);
   font-size: inherit;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: var(--second-accentcolor);
+  }
 `;
 
 export const AddQuantity = styled.div`
   display: flex;
   margin-top: 10px;
-  & > span {
+  & > div {
+    text-align: center;
     font-weight: bold;
   }
 
@@ -84,10 +91,6 @@ export const IncrDecrButton = styled.button`
   border: none;
   fill: var(--main-text-color);
   cursor: pointer;
-  margin-right: 5px;
-  @media screen and (min-width: 768px) {
-    margin-right: 10px;
-  }
 `;
 
 export const DelButton = styled.button`
@@ -164,12 +167,20 @@ export const Wraper = styled.div`
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
+    margin: 0 auto;
   }
 
   & > p {
+    text-align: center;
+
     width: 50px;
     @media screen and (min-width: 768px) {
       width: 70px;
+      margin-left: 30px;
+    }
+    @media screen and (min-width: 768px) {
+      width: 70px;
+      margin-left: 100px;
     }
   }
 `;
