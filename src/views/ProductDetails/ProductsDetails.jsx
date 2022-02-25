@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { IoBag } from 'react-icons/io5';
-import { productsActions } from 'redux/products';
+import { productsSelectors, productsActions } from 'redux/products';
 import ProductInfo from '../../Components/ProductInfo/ProductInfo';
 import { useParams } from 'react-router-dom';
 
@@ -20,9 +20,11 @@ export default function ProductsDetails() {
   const dispatch = useDispatch();
   const [product, setProduct] = useState({});
   const { productId } = useParams();
+  const cartProducts = useSelector(productsSelectors.getCartProducts);
 
   useEffect(() => {
     api.fetchProductsDetails(productId).then(data => {
+      data.price = data.price.toFixed(2);
       if (data.id % 3 === 0) {
         data.sale = true;
       } else {
@@ -35,8 +37,12 @@ export default function ProductsDetails() {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
 
-  const handleClick = () => {
-    dispatch(productsActions.addProduct(product));
+  const handleClick = async product => {
+    if (cartProducts.find(cartProduct => cartProduct.id === product.id)) {
+      dispatch(productsActions.addQuantity(product));
+    } else {
+      dispatch(productsActions.addProduct(product));
+    }
   };
 
   return (
@@ -57,7 +63,7 @@ export default function ProductsDetails() {
           </NavLink>
         </NavigateEl>
         <ProductInfo product={product} />
-        <AddButton onClick={handleClick} type="button">
+        <AddButton onClick={() => handleClick(product)} type="button">
           Add to Cart
         </AddButton>
       </ProductsDetailsEl>

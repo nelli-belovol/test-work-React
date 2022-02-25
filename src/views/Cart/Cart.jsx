@@ -108,7 +108,9 @@ export default function Cart() {
                     </AddQuantity>
                     <Price className="productSum">
                       &#36;{' '}
-                      {Math.floor(product.quantity * product.price * 100) / 100}
+                      {((product.quantity * product.price * 100) / 100).toFixed(
+                        2,
+                      )}
                     </Price>
                   </Wraper>
                   <DelButton

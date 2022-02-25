@@ -15,6 +15,7 @@ export default function ProductsList({ listStyle }) {
   useEffect(() => {
     api.fetchProducts().then(data => {
       data.forEach((product, index) => {
+        product.price = product.price.toFixed(2);
         if ((index + 1) % 3 === 0) {
           product.sale = true;
         } else {
