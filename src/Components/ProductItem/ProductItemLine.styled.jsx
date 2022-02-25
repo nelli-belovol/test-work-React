@@ -31,10 +31,7 @@ export const ProductInfo = styled.div`
 export const Title = styled.h2`
   text-transform: uppercase;
   color: var(--main-text-color);
-  font-size: 6px;
-  @media screen and (min-width: 768px) {
-    font-size: 12px;
-  }
+  font-size: inherit;
 `;
 
 export const AddInfo = styled.div`
@@ -51,37 +48,9 @@ export const ButtonsContainer = styled.div`
   }
 `;
 
-export const Button = styled.button`
-  text-transform: uppercase;
-  font-size: 6px;
-  font-weight: bold;
-  background-color: var(--second-accentcolor);
-  border: none;
-  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  border-radius: 5px;
-
-  width: 40px;
-  color: var(--main-color);
-  cursor: pointer;
-
-  @media screen and (min-width: 768px) {
-    font-size: 12px;
-    width: 90px;
-    padding: 10px 5px;
-  }
-`;
-
-export const DarkButton = styled(Button)`
-  background-color: var(--first-accentcolor);
-  margin-right: 5px;
-  @media screen and (min-width: 768px) {
-    margin-right: 10px;
-  }
-`;
-
 export const ImageEl = styled.div`
   position: relative;
-  width: 50px;
+  width: 90px;
   height: 50px;
   object-fit: cover;
 
@@ -105,12 +74,9 @@ export const Image = styled.img`
 
 export const Price = styled.span`
   font-weight: bold;
-  font-size: 12px;
+
   color: var(--price-color);
   text-align: right;
-  @media screen and (min-width: 768px) {
-    font-size: 20px;
-  }
 `;
 
 export const Sale = styled.div`
@@ -118,7 +84,7 @@ export const Sale = styled.div`
   top: 60%;
   left: -30%;
   text-transform: uppercase;
-  font-size: 6px;
+
   font-weight: bold;
   background-color: rgba(188, 207, 132, 0.8);
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -129,9 +95,5 @@ export const Sale = styled.div`
 
   @media screen and (min-width: 768px) {
     padding: 10px 5px;
-    font-size: 12px;
-  }
-
-  @media screen and (min-width: 1200px) {
   }
 `;

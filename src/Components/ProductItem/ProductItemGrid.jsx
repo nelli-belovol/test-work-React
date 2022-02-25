@@ -8,8 +8,6 @@ import {
   ProductInfo,
   Title,
   ProductItem,
-  Button,
-  DarkButton,
   AddInfo,
   ButtonsContainer,
   ImageEl,
@@ -17,7 +15,7 @@ import {
   Price,
   Sale,
 } from './ProductItemGrid.styled';
-
+import { Button, DarkButton } from '../../styles/Buttons';
 export default function ProductItemLine(props) {
   const { product } = props;
   const dispatch = useDispatch();

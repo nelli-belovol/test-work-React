@@ -33,21 +33,3 @@ export const NavigateEl = styled.nav`
   text-align: center;
   border-bottom: 2px solid var(--second-color);
 `;
-
-export const Button = styled.button`
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: bold;
-  background-color: var(--second-accentcolor);
-  border: none;
-  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  border-radius: 5px;
-  padding: 10px 0px;
-  width: 90px;
-  color: var(--main-color);
-  cursor: pointer;
-`;
-
-export const AddButton = styled(Button)`
-  margin-left: 10px;
-`;

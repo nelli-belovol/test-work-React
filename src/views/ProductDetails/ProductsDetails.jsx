@@ -8,12 +8,8 @@ import { useParams } from 'react-router-dom';
 
 import FetchProducts from '../../api/products';
 import { Container } from '../Container.styled';
-import {
-  ProductsDetailsEl,
-  Button,
-  AddButton,
-  NavigateEl,
-} from './ProductsDetails.styled';
+import { ProductsDetailsEl, NavigateEl } from './ProductsDetails.styled';
+import { Button, AddButton } from '../../styles/Buttons';
 const api = new FetchProducts();
 
 export default function ProductsDetails() {

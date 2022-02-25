@@ -38,7 +38,7 @@ export const CartList = styled.ul`
 export const CartItem = styled.li`
   position: relative;
   display: flex;
-  padding: 10px 5px;
+  padding: 5px 15px;
   border-bottom: 1px solid var(--second-color);
 
   &:not(:last-child) {
@@ -46,7 +46,6 @@ export const CartItem = styled.li`
   }
 
   @media screen and (min-width: 768px) {
-    font-size: 12px;
     padding: 20px 15px;
   }
 `;
@@ -54,19 +53,18 @@ export const CartItem = styled.li`
 export const ProductInfo = styled.div`
   display: flex;
   flex-direction: column;
-
-  padding-left: 10px;
+  padding-left: 5px;
   width: 250px;
   text-align: left;
+  @media screen and (min-width: 768px) {
+    padding-left: 10px;
+  }
 `;
 
 export const Title = styled.h2`
   text-transform: uppercase;
   color: var(--main-text-color);
-  font-size: 6px;
-  @media screen and (min-width: 768px) {
-    font-size: 12px;
-  }
+  font-size: inherit;
 `;
 
 export const AddQuantity = styled.div`
@@ -81,26 +79,6 @@ export const AddQuantity = styled.div`
   }
 `;
 
-export const Button = styled.button`
-  text-transform: uppercase;
-  font-size: 6px;
-  font-weight: bold;
-  background-color: var(--second-accentcolor);
-  border: none;
-  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  border-radius: 5px;
-
-  width: 40px;
-  color: var(--main-color);
-  cursor: pointer;
-
-  @media screen and (min-width: 768px) {
-    font-size: 12px;
-    width: 90px;
-    padding: 10px 5px;
-  }
-`;
-
 export const IncrDecrButton = styled.button`
   background-color: var(--main-color);
   border: none;
@@ -112,20 +90,12 @@ export const IncrDecrButton = styled.button`
   }
 `;
 
-export const DarkButton = styled(Button)`
-  background-color: var(--first-accentcolor);
-  margin-right: 0px;
-  @media screen and (min-width: 768px) {
-    margin-right: 10px;
-  }
-`;
-
 export const DelButton = styled.button`
   position: absolute;
   top: 10px;
   right: -3px;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   background-color: var(--main-color);
   border: none;
 
@@ -141,8 +111,8 @@ export const DelButton = styled.button`
   }
   margin-right: 5px;
   @media screen and (min-width: 768px) {
-    width: 20px;
-    height: 20px;
+    width: 12px;
+    height: 12px;
     margin-right: 10px;
   }
 `;
@@ -191,10 +161,9 @@ export const Wraper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  font-size: 8px;
+
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    font-size: 12px;
   }
 
   & > p {

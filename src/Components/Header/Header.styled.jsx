@@ -25,14 +25,13 @@ export const Navigate = styled.div`
   display: flex;
   align-items: center;
   color: var(--main-text-color);
-  font-size: 14px;
 `;
 
 export const Title = styled.h1`
   color: var(--main-text-color);
 `;
 
-export const Button = styled.button`
+export const ButtonGrid = styled.button`
   background-color: var(--second-accentcolor);
   border: none;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -43,7 +42,7 @@ export const Button = styled.button`
   cursor: pointer;
 `;
 
-export const DarkButton = styled(Button)`
+export const DarkButtonList = styled(ButtonGrid)`
   background-color: var(--first-accentcolor);
   margin-right: 3px;
 `;

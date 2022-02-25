@@ -7,7 +7,6 @@ import { Container } from '../Container.styled';
 import {
   CartEl,
   HeaderEl,
-  Button,
   CartList,
   CartItem,
   ProductInfo,
@@ -16,12 +15,13 @@ import {
   ImageEl,
   Image,
   Price,
-  DarkButton,
   IncrDecrButton,
   Wraper,
   DelButton,
   PriceTotal,
 } from './Cart.styled';
+
+import { Button, DarkButton } from '../../styles/Buttons';
 import { IoAdd, IoRemove, IoClose } from 'react-icons/io5';
 
 export default function Cart() {

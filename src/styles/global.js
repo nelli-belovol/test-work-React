@@ -69,15 +69,14 @@ a {
   --price-color: rgb(144, 70, 68);
 
 
-  font-size: 6px;
+ font-size: 8px;
 
-  @media (min-width: 768px) {
-    font-size: 8px;
-  }
-
-   @media (min-width: 1024px) {
+  @media screen and (min-width: 768px) {
     font-size: 10px;
-   }
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+  }
 
    background-color: var(--backrgound-color);
 }  

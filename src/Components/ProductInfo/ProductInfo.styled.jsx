@@ -57,7 +57,7 @@ export const Sale = styled.div`
   top: 70%;
   left: 0;
   text-transform: uppercase;
-  font-size: 6px;
+
   font-weight: bold;
   background-color: rgba(188, 207, 132, 0.8);
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -68,9 +68,5 @@ export const Sale = styled.div`
 
   @media screen and (min-width: 768px) {
     padding: 10px 5px;
-    font-size: 12px;
-  }
-
-  @media screen and (min-width: 1200px) {
   }
 `;
