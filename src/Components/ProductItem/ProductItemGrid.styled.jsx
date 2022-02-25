@@ -6,7 +6,7 @@ export const ProductItem = styled.li`
   justify-content: space-between;
   padding: 20px 15px;
   align-items: center;
-
+  width: 100%;
   margin: 10px auto;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 
